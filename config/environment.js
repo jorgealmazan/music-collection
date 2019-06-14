@@ -2,6 +2,9 @@
 
 module.exports = function(environment) {
   let ENV = {
+    fontawesome: {
+      'free-solid-svg-icons': 'all',
+    },
     modulePrefix: 'music-collection',
     environment,
     rootURL: '/',
