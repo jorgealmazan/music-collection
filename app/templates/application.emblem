@@ -1,0 +1,4 @@
+.test-class
+  | Music Data Base Application
+.test
+  = outlet

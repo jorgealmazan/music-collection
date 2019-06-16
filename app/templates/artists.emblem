@@ -1,0 +1,3 @@
+.title
+  | Music Collection
+= artists-component artists=model
