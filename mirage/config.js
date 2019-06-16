@@ -4,17 +4,19 @@ export default function() {
 
 // GET ALL
   this.get('/artists');
-  this.get('/artists/:id/albums');
+  this.get('/artists/:id/');
+  this.get('/albums');
+  this.get('/albums/:id');
 
 // CREATE
   this.post('/artists');
-  this.post('/artists/:id/albums');
+  this.post('/albums');
 
 // UPDATE
   this.put('/artists/:id');
-  this.put('/artists/:id/albums/:id');
+  this.put('/albums/:id');
 
 // DELETE
   this.del('/artists/:id');
-  this.del('/artists/:id/albums/:id');
+  this.del('/albums/:id');
 }
