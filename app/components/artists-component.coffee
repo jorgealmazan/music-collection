@@ -12,7 +12,7 @@ export default  Ember.Component.extend
     addArtist: ->
       artist = @get('store').createRecord 'artist',
         name: '(New Artist)'
-        photo: ''
+        photo: 'empty'
 
       artist.save().then =>
         console.log('artist saved')
