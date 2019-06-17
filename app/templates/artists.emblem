@@ -1,3 +1,6 @@
-.title
+.collection-title
   | Music Collection
-= artists-component artists=model
+.artists-container
+  = artists-component artists=model
+  .artist-info
+    = outlet

@@ -1,4 +1,4 @@
-.test-class
+h1.application-header
   | Music Data Base Application
-.test
+.main-container
   = outlet
