@@ -1,15 +1,13 @@
-.artists-body
-  background: teal
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !important
-  margin: 40px auto
-  padding: 0px 20px
-
+.artists-container
+  display: flex
+  justify-content: space-evenly
   .artists-list
     display: flex
     flex-wrap: wrap
+    width: 100%
     .artist
       width: 150px
-      margin: 50px
+      margin: 20px
       .artist-icon
         margin: 0px !important
         height: 150px
@@ -26,8 +24,6 @@
       .artist-name
         text-align: center
     .add-artist
-      width: 200px
-      margin: 50px
       .add-content
         display: flex
         align-items: center
@@ -38,5 +34,7 @@
         border-radius: 50%
         background: rgba(169,169,169,0.7)
 
+  .artist-info
+    width: 60%
 
 
