@@ -5,7 +5,6 @@ export default  Ember.Component.extend
   layout: layout
   store: Ember.inject.service()
 
-
   formattedArtists: Ember.computed 'artists', ->
     @get('artists')
 

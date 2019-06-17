@@ -1,0 +1,15 @@
+.album-list
+  = each formattedAlbums as |album|
+    .album-container
+      .left-elements
+        .album-cover
+          img.img-circle src=album.cover
+        .album-name
+          = album.name
+      .right-elements
+        .release-year Release year: {{ album.year }}
+        .spotify
+          a.spotify-url href=album.spotify title='Open Album in Spotify' Spotify
+  .add-album
+    a.add-content{ action 'addAlbum' artist } href='javascript:void(0)' title='Clear Search' = fa-icon 'plus'
+

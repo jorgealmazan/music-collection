@@ -1,11 +1,12 @@
-.artists-body
-  .artists-list
-    = each formattedArtists as |artist|
-      .artist
-        .artist-icon
-          a.link-artist{ action 'getArtist' artist} href='javascript:void(0)' title='Clear Search'
+.artists-list
+  = each formattedArtists as |artist|
+    .artist
+      .artist-icon
+        link-to "artists.artist.albums" artist
+          unless (eq artist.photo '')
             img.img-circle src=artist.photo
-        .artist-name
-          = artist.name
+      .artist-name
+        = artist.name
+  .artist
     .add-artist
       a.add-content{ action 'addArtist' } href='javascript:void(0)' title='Clear Search' = fa-icon 'plus'
