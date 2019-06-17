@@ -18,7 +18,7 @@ export default  Ember.Component.extend
         spotify: ''
         artist: artist
 
-        album.save().then =>
+      album.save().then =>
           console.log('album saved')
         , ->
           album.rollbackAttributes()
