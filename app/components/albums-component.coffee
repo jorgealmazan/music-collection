@@ -16,6 +16,7 @@ export default  Ember.Component.extend
         year: ''
         cover: ''
         spotify: ''
+        artist: artist
 
         album.save().then =>
           console.log('album saved')
