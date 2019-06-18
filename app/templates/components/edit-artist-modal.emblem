@@ -1,0 +1,20 @@
+modal-dialog onClose=(action closeModal) translucentOverlay=true
+ .edit-modal.modal-container
+   .modal-header
+      | Editing #{artist.name}
+   .modal-body
+      .artist-name
+        .placeholder
+          | Name:
+        .editable-content
+          = input type='text' placeholder="(New Artist)" value=artist.name
+      .artist-photo
+        .placeholder
+          | Photo-url:
+        .editable-content
+          = input type='text' placeholder="empty" value=artist.photo
+
+   .modal-footer
+      button.btn.btn-dark{action closeModal} Cancel
+      button.btn.btn-success{action saveChanges artist} Save
+

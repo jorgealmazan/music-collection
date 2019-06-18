@@ -13,8 +13,8 @@ export default function() {
   this.post('/albums');
 
 // UPDATE
-  this.put('/artists/:id');
-  this.put('/albums/:id');
+  this.patch('/artists/:id');
+  this.patch('/albums/:id');
 
 // DELETE
   this.del('/artists/:id');

@@ -1,0 +1,11 @@
+modal-dialog onClose=(action closeModal) translucentOverlay=true
+ .edit-modal.modal-container
+   .modal-header
+      | Deleting #{model.name}
+   .modal-body
+      .delete-confirmation
+      | Are you sure you want to delete the entry?
+   .modal-footer
+      button.btn.btn-dark{action closeModal} Cancel
+      button.btn.btn-danger{action deleteArtist model} Delete
+

@@ -1,9 +1,23 @@
+.artist-action-buttons
+  .delete-action
+    button.btn.btn-dark{action 'toggleDeleteModal'} Delete Artist
+  .edit-action
+    button.btn.btn-dark{action 'toggleEditModal'} Edit Artist
+  if isShowingEdit
+    = edit-artist-modal closeModal=(action 'toggleEditModal') saveChanges=(action 'saveArtist') artist=artist
+  if isShowingDelete
+    = delete-confirmation-modal closeModal=(action 'toggleDeleteModal') deleteArtist=(action 'deleteArtist') model=artist
+
 .album-list
   = each formattedAlbums as |album|
-    .album-container
+    .album
       .left-elements
         .album-cover
-          img.img-circle src=album.cover
+          = if (not-eq album.cover "empty")
+            img.img-album src=album.cover
+          = else
+            .img-album
+              | No Cover
         .album-name
           = album.name
       .right-elements
@@ -12,4 +26,3 @@
           a.spotify-url href=album.spotify title='Open Album in Spotify' Spotify
   .add-album
     a.add-content{ action 'addAlbum' artist } href='javascript:void(0)' title='Clear Search' = fa-icon 'plus'
-
