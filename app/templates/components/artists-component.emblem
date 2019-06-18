@@ -2,11 +2,12 @@
   = each formattedArtists as |artist|
     .artist
       .artist-icon
-        = if (not-eq artist.photo "empty")
-          = link-to "artists.artist.albums" artist
+        = link-to "artists.artist.albums" artist
+          = if (not-eq artist.photo "empty")
             img.img-circle src=artist.photo
-        = else
-            img.img-circle src=artist.photo
+          = else
+            .empty-photo
+              | NO PHOTO
       .artist-name
         = artist.name
   .artist
