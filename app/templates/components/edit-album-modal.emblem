@@ -1,0 +1,30 @@
+modal-dialog onClose=(action closeModal) translucentOverlay=true
+ .edit-modal.modal-container
+   .modal-header
+      | Editing #{album.name}
+   .modal-body
+      .album-name
+        .placeholder
+          | Name:
+        .editable-content
+          = input type='text' placeholder="(New Artist)" value=album.name
+      .album-year
+        .placeholder
+          | Year:
+        .editable-content
+          = input type='text' placeholder="empty" value=album.year
+      .album-cover
+        .placeholder
+          | Cover-url:
+        .editable-content
+          = input type='text' placeholder="empty" value=album.cover
+      .album-spotify-link
+        .placeholder
+          | Spotify-url:
+        .editable-content
+          = input type='text' placeholder="empty" value=album.spotify
+
+   .modal-footer
+      button.btn.btn-dark{action closeModal} Cancel
+      button.btn.btn-success{action saveChanges album} Save
+

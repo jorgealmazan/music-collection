@@ -1,12 +1,12 @@
 .artist-action-buttons
   .delete-action
-    button.btn.btn-dark{action 'toggleDeleteModal'} Delete Artist
+    button.btn.btn-dark{action 'toggleDeleteArtistModal'} Delete Artist
   .edit-action
-    button.btn.btn-dark{action 'toggleEditModal'} Edit Artist
-  if isShowingEdit
-    = edit-artist-modal closeModal=(action 'toggleEditModal') saveChanges=(action 'saveArtist') artist=artist
-  if isShowingDelete
-    = delete-confirmation-modal closeModal=(action 'toggleDeleteModal') deleteArtist=(action 'deleteArtist') model=artist
+    button.btn.btn-dark{action 'toggleEditArtistModal'} Edit Artist
+  if isShowingEditArtist
+    = edit-artist-modal closeModal=(action 'toggleEditArtistModal') saveChanges=(action 'saveArtist') artist=artist
+  if isShowingDeleteArtist
+    = delete-confirmation-modal closeModal=(action 'toggleDeleteArtistModal') deleteArtist=(action 'deleteArtist') model=artist
 
 .album-list
   = each formattedAlbums as |album|
@@ -24,5 +24,13 @@
         .release-year Release year: {{ album.year }}
         .spotify
           a.spotify-url href=album.spotify title='Open Album in Spotify' Spotify
+        .edit-album-action
+          button.btn.btn-sm.btn-dark{action 'toggleEditAlbumModal'} Edit Album
+        .delete-album-action
+          button.btn.btn-sm.btn-dark{action 'toggleDeleteAlbumModal'} Delete Album
+        if isShowingEditAlbum
+          = edit-album-modal closeModal=(action 'toggleEditAlbumModal') saveChanges=(action 'saveAlbum') album=album
+        if isShowingDeleteAlbum
+          = delete-confirmation-modal closeModal=(action 'toggleDeleteAlbumModal') deleteArtist=(action 'deleteAlbum') model=album
   .add-album
     a.add-content{ action 'addAlbum' artist } href='javascript:void(0)' title='Clear Search' = fa-icon 'plus'

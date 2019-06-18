@@ -4,8 +4,10 @@
 export default  Ember.Component.extend
   layout: layout
   store: Ember.inject.service()
-  isShowingEdit: false
-  isShowingDelete: false
+  isShowingEditArtist: false
+  isShowingDeleteArtist: false
+  isShowingEditAlbum: false
+  isShowingDeleteAlbum: false
 
   formattedAlbums: Ember.computed 'artist', ->
     @get('artist.albums')
@@ -15,20 +17,38 @@ export default  Ember.Component.extend
     saveArtist: (artist) ->
       self = @
       artist.save().then =>
-        console.log('update complete!')
-        self.send('toggleEditModal')
+        console.log('artist update!')
+        self.send('toggleEditArtistModal')
 
     deleteArtist: (artist) ->
       self = @
       artist.destroyRecord().then =>
         console.log('artist deleted!')
-        self.send('toggleDeleteModal')
+        self.send('toggleDeleteArtistModal')
 
-    toggleEditModal: ->
-      @toggleProperty('isShowingEdit')
+    saveAlbum: (album) ->
+      self = @
+      album.save().then =>
+        console.log('album update!')
+        self.send('toggleEditAlbumModal')
 
-    toggleDeleteModal: ->
-      @toggleProperty('isShowingDelete')
+    deleteAlbum: (album) ->
+      self = @
+      album.destroyRecord().then =>
+        console.log('album deleted!')
+        self.send('toggleDeleteAlbumModal')
+
+    toggleEditArtistModal: ->
+      @toggleProperty('isShowingEditArtist')
+
+    toggleDeleteArtistModal: ->
+      @toggleProperty('isShowingDeleteArtist')
+
+    toggleEditAlbumModal: ->
+      @toggleProperty('isShowingEditAlbum')
+
+    toggleDeleteAlbumModal: ->
+      @toggleProperty('isShowingDeleteAlbum')
 
     addAlbum: (artist) ->
       album = @get('store').createRecord 'album',
@@ -42,8 +62,3 @@ export default  Ember.Component.extend
           console.log('album saved')
         , ->
           album.rollbackAttributes()
-
-    deleteAlbum: (album) ->
-      @get('store').findRecord(album).then (item)->
-        item.destroyRecord()
-        console.log('album deleted!')
